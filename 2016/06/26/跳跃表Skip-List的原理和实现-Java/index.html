@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据结构,跳跃表,SkipList,Java," />
 
 
 
@@ -84,15 +84,44 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="上帝说要有光，于是有了光。
+
+为什么要有跳跃表我们在实际开发中经常会有在一堆数据中查找一个指定数据的需求，而常用的支持高效查找算法的实现方式有以下几种：
+
+有序数组。这种方式的存储结构，优点是支持数据的随机访问，并且可以采用二分查找算法降低查找操作的复杂度。缺点同样很明显，插入和删除数据时，为了保持元素的有序性，需要进行大量的移动数据的操作。
+二叉查找树。如果需要一个既支持高效的二分查找算法，又">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跳跃表Skip List的原理和实现(Java)">
+<meta property="og:url" content="http://yoursite.com/2016/06/26/跳跃表Skip-List的原理和实现-Java/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="上帝说要有光，于是有了光。
+
+为什么要有跳跃表我们在实际开发中经常会有在一堆数据中查找一个指定数据的需求，而常用的支持高效查找算法的实现方式有以下几种：
+
+有序数组。这种方式的存储结构，优点是支持数据的随机访问，并且可以采用二分查找算法降低查找操作的复杂度。缺点同样很明显，插入和删除数据时，为了保持元素的有序性，需要进行大量的移动数据的操作。
+二叉查找树。如果需要一个既支持高效的二分查找算法，又">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 17-55-04.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 17-58-08.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 18-59-50.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 19-25-47.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-06-28.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-30-46.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-31-43.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-32-41.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-41-19.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-41-45.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-42-08.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-45-13.jpg">
+<meta property="og:updated_time" content="2016-06-27T12:38:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="跳跃表Skip List的原理和实现(Java)">
+<meta name="twitter:description" content="上帝说要有光，于是有了光。
+
+为什么要有跳跃表我们在实际开发中经常会有在一堆数据中查找一个指定数据的需求，而常用的支持高效查找算法的实现方式有以下几种：
+
+有序数组。这种方式的存储结构，优点是支持数据的随机访问，并且可以采用二分查找算法降低查找操作的复杂度。缺点同样很明显，插入和删除数据时，为了保持元素的有序性，需要进行大量的移动数据的操作。
+二叉查找树。如果需要一个既支持高效的二分查找算法，又">
+<meta name="twitter:image" content="http://yoursite.com/images/2016-06-26 17-55-04.jpg">
 
 
 
@@ -113,9 +142,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/26/跳跃表Skip-List的原理和实现-Java/"/>
 
-  <title> Hexo </title>
+  <title> 跳跃表Skip List的原理和实现(Java) | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +165,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +272,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -267,10 +294,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/06/26/跳跃表Skip-List的原理和实现-Java/" itemprop="url">
-                  跳跃表Skip List的原理和实现(Java)
-                </a>
+                跳跃表Skip List的原理和实现(Java)
               
             
           </h1>
@@ -329,9 +353,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>上帝说要有光，于是有了光。</p>
 </blockquote>
 <h2 id="为什么要有跳跃表"><a href="#为什么要有跳跃表" class="headerlink" title="为什么要有跳跃表"></a>为什么要有跳跃表</h2><p>我们在实际开发中经常会有在一堆数据中查找一个指定数据的需求，而常用的支持高效查找算法的实现方式有以下几种：</p>
@@ -423,36 +445,50 @@
 <p>打算在后续的文章里面详细说一下JDK中的一些相关实现。其它，在分布式缓存应用Redis中，有序的不重复集合就是通过SkipLIst ＋ Map的方式实现的。在这就不做详细说明了。</p>
 <p>That is all，enjoy it！</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
+          
+            <a href="/tags/跳跃表/" rel="tag">#跳跃表</a>
+          
+            <a href="/tags/SkipList/" rel="tag">#SkipList</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -460,6 +496,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -479,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -530,6 +579,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有跳跃表"><span class="nav-number">1.</span> <span class="nav-text">为什么要有跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是跳跃表"><span class="nav-number">2.</span> <span class="nav-text">什么是跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表的实现"><span class="nav-number">3.</span> <span class="nav-text">跳跃表的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先，我们需要定义链表中节点的模型"><span class="nav-number">3.1.</span> <span class="nav-text">首先，我们需要定义链表中节点的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来，我们回到跳跃表本身的模型"><span class="nav-number">3.2.</span> <span class="nav-text">接下来，我们回到跳跃表本身的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化一个跳跃表的实例"><span class="nav-number">3.3.</span> <span class="nav-text">初始化一个跳跃表的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Map的基本操作"><span class="nav-number">3.4.</span> <span class="nav-text">实现Map的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现get方法"><span class="nav-number">3.4.1.</span> <span class="nav-text">实现get方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现put方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">实现put方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步，查找适合插入的位子"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">第一步，查找适合插入的位子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步，在查找到的p节点后面插入新增的节点q"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">第二步，在查找到的p节点后面插入新增的节点q</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步，重复下面的操作，使用随机数决定新增节点的高度"><span class="nav-number">3.4.2.3.</span> <span class="nav-text">第三步，重复下面的操作，使用随机数决定新增节点的高度</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现remove方法"><span class="nav-number">3.4.3.</span> <span class="nav-text">实现remove方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表的在Java中的应用"><span class="nav-number">4.</span> <span class="nav-text">跳跃表的在Java中的应用</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -626,6 +686,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
