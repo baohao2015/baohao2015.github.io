@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/4739968252615bfb.jpg">
 <meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/7f3407d7ebe06c76.jpg">
 <meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/d62cb6debb4a1350.jpg">
-<meta property="og:updated_time" content="2016-06-27T13:25:21.000Z">
+<meta property="og:updated_time" content="2016-06-27T14:47:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跳跃表Skip List的原理和实现(Java)">
 <meta name="twitter:description" content="上帝说要有光，于是有了光。
@@ -217,16 +217,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -247,12 +237,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            公益404
+            关于
           </a>
         </li>
       
@@ -339,6 +329,15 @@
           
 
           
+          
+             <span id="/2016/06/26/跳跃表Skip-List的原理和实现-Java/" class="leancloud_visitors" data-flag-title="跳跃表Skip List的原理和实现(Java)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -436,7 +435,7 @@
 <h4 id="实现remove方法"><a href="#实现remove方法" class="headerlink" title="实现remove方法"></a>实现remove方法</h4><p>删除节点的操作相对put就比较简单了，首先查找到包含key值的节点，将节点从链表中移除，接着如果有更高level的节点，则repeat这个操作即可。<br>Java代码实现如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">remove</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	SkipListEntry p, q;</span><br><span class="line">	</span><br><span class="line">	p = findEntry(key);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(!p.key.equals(key)) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Integer oldValue = p.value;</span><br><span class="line">	<span class="keyword">while</span>(p != <span class="keyword">null</span>) &#123;</span><br><span class="line">		q = p.up;</span><br><span class="line">		p.left.right = p.right;</span><br><span class="line">		p.right.left = p.left;</span><br><span class="line">		p = q;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>跳跃表的原理和实现到这里就结束了。<br>还有需要说明的一点是：跳跃表每次运行的结果是不一样的，这就是为什么说跳跃表是属于随机化数据结构。（Random的存在导致的）</p>
-<h2 id="跳跃表的在Java中的应用"><a href="#跳跃表的在Java中的应用" class="headerlink" title="跳跃表的在Java中的应用"></a>跳跃表的在Java中的应用</h2><ul>
+<h2 id="跳跃表在Java中的应用"><a href="#跳跃表在Java中的应用" class="headerlink" title="跳跃表在Java中的应用"></a>跳跃表在Java中的应用</h2><ul>
 <li>ConcurrentSkipListMap —— 在功能上对应HashTable、HashMap、TreeMap；</li>
 <li>ConcurrentSkipListSet —— 在功能上对应HashSet；</li>
 </ul>
@@ -486,6 +485,29 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>
@@ -569,6 +591,17 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://www.github.com/baohao2015" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -586,7 +619,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有跳跃表"><span class="nav-number">1.</span> <span class="nav-text">为什么要有跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是跳跃表"><span class="nav-number">2.</span> <span class="nav-text">什么是跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表的实现"><span class="nav-number">3.</span> <span class="nav-text">跳跃表的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先，我们需要定义链表中节点的模型"><span class="nav-number">3.1.</span> <span class="nav-text">首先，我们需要定义链表中节点的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来，我们回到跳跃表本身的模型"><span class="nav-number">3.2.</span> <span class="nav-text">接下来，我们回到跳跃表本身的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化一个跳跃表的实例"><span class="nav-number">3.3.</span> <span class="nav-text">初始化一个跳跃表的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Map的基本操作"><span class="nav-number">3.4.</span> <span class="nav-text">实现Map的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现get方法"><span class="nav-number">3.4.1.</span> <span class="nav-text">实现get方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现put方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">实现put方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步，查找适合插入的位子"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">第一步，查找适合插入的位子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步，在查找到的p节点后面插入新增的节点q"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">第二步，在查找到的p节点后面插入新增的节点q</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步，重复下面的操作，使用随机数决定新增节点的高度"><span class="nav-number">3.4.2.3.</span> <span class="nav-text">第三步，重复下面的操作，使用随机数决定新增节点的高度</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现remove方法"><span class="nav-number">3.4.3.</span> <span class="nav-text">实现remove方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表的在Java中的应用"><span class="nav-number">4.</span> <span class="nav-text">跳跃表的在Java中的应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有跳跃表"><span class="nav-number">1.</span> <span class="nav-text">为什么要有跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是跳跃表"><span class="nav-number">2.</span> <span class="nav-text">什么是跳跃表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表的实现"><span class="nav-number">3.</span> <span class="nav-text">跳跃表的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先，我们需要定义链表中节点的模型"><span class="nav-number">3.1.</span> <span class="nav-text">首先，我们需要定义链表中节点的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来，我们回到跳跃表本身的模型"><span class="nav-number">3.2.</span> <span class="nav-text">接下来，我们回到跳跃表本身的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化一个跳跃表的实例"><span class="nav-number">3.3.</span> <span class="nav-text">初始化一个跳跃表的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Map的基本操作"><span class="nav-number">3.4.</span> <span class="nav-text">实现Map的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现get方法"><span class="nav-number">3.4.1.</span> <span class="nav-text">实现get方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现put方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">实现put方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步，查找适合插入的位子"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">第一步，查找适合插入的位子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步，在查找到的p节点后面插入新增的节点q"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">第二步，在查找到的p节点后面插入新增的节点q</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步，重复下面的操作，使用随机数决定新增节点的高度"><span class="nav-number">3.4.2.3.</span> <span class="nav-text">第三步，重复下面的操作，使用随机数决定新增节点的高度</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现remove方法"><span class="nav-number">3.4.3.</span> <span class="nav-text">实现remove方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表在Java中的应用"><span class="nav-number">4.</span> <span class="nav-text">跳跃表在Java中的应用</span></a></li></ol></div>
             
           </div>
         </section>
@@ -624,6 +657,22 @@
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
 
         
       </div>
@@ -712,6 +761,113 @@
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("9PlVmjHTJ1LwUxkcqUOhYsqj-gzGzoHsz", "yKtJprbrBOh62d1A9Sw2tzMg");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
