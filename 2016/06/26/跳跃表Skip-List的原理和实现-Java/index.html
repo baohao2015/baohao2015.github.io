@@ -100,19 +100,19 @@
 
 有序数组。这种方式的存储结构，优点是支持数据的随机访问，并且可以采用二分查找算法降低查找操作的复杂度。缺点同样很明显，插入和删除数据时，为了保持元素的有序性，需要进行大量的移动数据的操作。
 二叉查找树。如果需要一个既支持高效的二分查找算法，又">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 17-55-04.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 17-58-08.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 18-59-50.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 19-25-47.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-06-28.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-30-46.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-31-43.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-32-41.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-41-19.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-41-45.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-42-08.jpg">
-<meta property="og:image" content="http://yoursite.com/images/2016-06-26 22-45-13.jpg">
-<meta property="og:updated_time" content="2016-06-27T12:38:35.000Z">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/c374b5c454ad7c06.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/23718ae712daf927.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/d1c0a11f896beb3b.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/9f2534a76655b15d.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/163c30ebf10acd1e.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/a7674edebae6007b.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/163c30ebf10acd1e.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/d31f97809957012b.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/3f01e41aab79d877.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/4739968252615bfb.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/7f3407d7ebe06c76.jpg">
+<meta property="og:image" content="http://ac-jU0QGlgD.clouddn.com/d62cb6debb4a1350.jpg">
+<meta property="og:updated_time" content="2016-06-27T13:25:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跳跃表Skip List的原理和实现(Java)">
 <meta name="twitter:description" content="上帝说要有光，于是有了光。
@@ -121,7 +121,7 @@
 
 有序数组。这种方式的存储结构，优点是支持数据的随机访问，并且可以采用二分查找算法降低查找操作的复杂度。缺点同样很明显，插入和删除数据时，为了保持元素的有序性，需要进行大量的移动数据的操作。
 二叉查找树。如果需要一个既支持高效的二分查找算法，又">
-<meta name="twitter:image" content="http://yoursite.com/images/2016-06-26 17-55-04.jpg">
+<meta name="twitter:image" content="http://ac-jU0QGlgD.clouddn.com/c374b5c454ad7c06.jpg">
 
 
 
@@ -368,7 +368,7 @@
 </blockquote>
 <h2 id="什么是跳跃表"><a href="#什么是跳跃表" class="headerlink" title="什么是跳跃表"></a>什么是跳跃表</h2><p>跳跃表（SkipList）是一种可以替代平衡树的数据结构。跳跃表让已排序的数据分布在多层次的链表结构中，默认是将Key值升序排列的，以 0-1 的随机值决定一个数据是否能够攀升到高层次的链表中。它通过容许一定的数据冗余，达到 “以空间换时间” 的目的。<br>跳跃表的效率和AVL相媲美，查找／添加／插入／删除操作都能够在O（LogN）的复杂度内完成。</p>
 <p>讲了那么多，下面就直接进入主题，详细的看一看跳跃表是怎么实现的。</p>
-<h2 id="跳跃表的实现"><a href="#跳跃表的实现" class="headerlink" title="跳跃表的实现"></a>跳跃表的实现</h2><p><img src="/images/2016-06-26 17-55-04.jpg" alt=""><br>上面这张图就是一个跳跃表的实例，先说一下跳跃表的构造特征：</p>
+<h2 id="跳跃表的实现"><a href="#跳跃表的实现" class="headerlink" title="跳跃表的实现"></a>跳跃表的实现</h2><p><img src="http://ac-jU0QGlgD.clouddn.com/c374b5c454ad7c06.jpg" alt=""><br>上面这张图就是一个跳跃表的实例，先说一下跳跃表的构造特征：</p>
 <ul>
 <li>一个跳跃表应该有若干个层（Level）链表组成；</li>
 <li>跳跃表中最底层的链表包含所有数据；</li>
@@ -378,14 +378,14 @@
 <li>在每一层中，-∞ 和 +∞两个元素都出现(分别表示INT_MIN 和 INT_MAX)；</li>
 <li>头指针（head）指向最高一层的第一个元素；</li>
 </ul>
-<h3 id="首先，我们需要定义链表中节点的模型"><a href="#首先，我们需要定义链表中节点的模型" class="headerlink" title="首先，我们需要定义链表中节点的模型"></a>首先，我们需要定义链表中节点的模型</h3><p><img src="/images/2016-06-26 17-58-08.jpg" alt=""><br>Java代码实现如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SkipListEntry</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// data</span></span><br><span class="line">	<span class="keyword">public</span> String key;</span><br><span class="line">	<span class="keyword">public</span> Integer value;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// links</span></span><br><span class="line">	<span class="keyword">public</span> SkipListEntry up;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry down;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry left;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry right;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// special</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String negInf = <span class="string">"-oo"</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String posInf = <span class="string">"+oo"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// constructor</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SkipListEntry</span><span class="params">(String key, Integer value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.key = key;</span><br><span class="line">		<span class="keyword">this</span>.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// methods...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="首先，我们需要定义链表中节点的模型"><a href="#首先，我们需要定义链表中节点的模型" class="headerlink" title="首先，我们需要定义链表中节点的模型"></a>首先，我们需要定义链表中节点的模型</h3><p><img src="http://ac-jU0QGlgD.clouddn.com/23718ae712daf927.jpg" alt=""><br>Java代码实现如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SkipListEntry</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// data</span></span><br><span class="line">	<span class="keyword">public</span> String key;</span><br><span class="line">	<span class="keyword">public</span> Integer value;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// links</span></span><br><span class="line">	<span class="keyword">public</span> SkipListEntry up;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry down;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry left;</span><br><span class="line">	<span class="keyword">public</span> SkipListEntry right;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// special</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String negInf = <span class="string">"-oo"</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String posInf = <span class="string">"+oo"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// constructor</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SkipListEntry</span><span class="params">(String key, Integer value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.key = key;</span><br><span class="line">		<span class="keyword">this</span>.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// methods...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>可以看到节点模型主要分为2个部分。<br>data部分包含具体的存储数据，这里为了不引入其他杂乱的问题，使用String作为key的类型，Integer作为value的类型。<br>links部分包含4个指针，分别是up，down，left，right，单从名字上就能够明白它们的作用。<br>最后一个需要解释的是，2个special的字符串变量，它们是用来处理一些特殊节点的初始化的，从上面的图中可以看到，跳跃表每一层链表中都有那么2个节点。具体的初始化方法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SkipListEntry x = <span class="keyword">new</span> SkipListEntry(SkipListEntry.negInf, <span class="keyword">null</span>);</span><br><span class="line">SkipListEntry y = <span class="keyword">new</span> SkipListEntry(SkipListEntry.posInf, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure></p>
 <h3 id="接下来，我们回到跳跃表本身的模型"><a href="#接下来，我们回到跳跃表本身的模型" class="headerlink" title="接下来，我们回到跳跃表本身的模型"></a>接下来，我们回到跳跃表本身的模型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SkipList</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> SkipListEntry head;	<span class="comment">// First element of the top level</span></span><br><span class="line">	<span class="keyword">public</span> SkipListEntry tail;	<span class="comment">// Last element of the top level</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> n;		<span class="comment">// number of entries in the Skip List</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> h;		<span class="comment">// Height</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> Random r;	<span class="comment">// Coin toss</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Note: Random类的实例对象r用来决定新添加的节点是否能够向更高一层的链表攀升。</p>
 </blockquote>
 <h3 id="初始化一个跳跃表的实例"><a href="#初始化一个跳跃表的实例" class="headerlink" title="初始化一个跳跃表的实例"></a>初始化一个跳跃表的实例</h3><p>构造函数将初始化一个空的跳跃表看起来像下面这样：</p>
-<p><img src="/images/2016-06-26 18-59-50.jpg" alt=""><br>构造函数的Java代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// constructor</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SkipList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	SkipListEntry p1, p2;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 创建一个 -oo 和一个 +oo 对象</span></span><br><span class="line">	p1 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.negInf, <span class="keyword">null</span>);</span><br><span class="line">	p2 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.posInf, <span class="keyword">null</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 将 -oo 和 +oo 相互连接</span></span><br><span class="line">	p1.right = p2;</span><br><span class="line">	p2.left = p1;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 给 head 和 tail 初始化</span></span><br><span class="line">	head = p1;</span><br><span class="line">	tail = p2;</span><br><span class="line">	</span><br><span class="line">	n = <span class="number">0</span>;</span><br><span class="line">	h = <span class="number">0</span>;</span><br><span class="line">	r = <span class="keyword">new</span> Random();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/d1c0a11f896beb3b.jpg" alt=""><br>构造函数的Java代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// constructor</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SkipList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	SkipListEntry p1, p2;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 创建一个 -oo 和一个 +oo 对象</span></span><br><span class="line">	p1 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.negInf, <span class="keyword">null</span>);</span><br><span class="line">	p2 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.posInf, <span class="keyword">null</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 将 -oo 和 +oo 相互连接</span></span><br><span class="line">	p1.right = p2;</span><br><span class="line">	p2.left = p1;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 给 head 和 tail 初始化</span></span><br><span class="line">	head = p1;</span><br><span class="line">	tail = p2;</span><br><span class="line">	</span><br><span class="line">	n = <span class="number">0</span>;</span><br><span class="line">	h = <span class="number">0</span>;</span><br><span class="line">	r = <span class="keyword">new</span> Random();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="实现Map的基本操作"><a href="#实现Map的基本操作" class="headerlink" title="实现Map的基本操作"></a>实现Map的基本操作</h3><p>Map的基本操作：</p>
 <ul>
 <li>get(String key) —— 根据key值查找某个元素</li>
@@ -393,7 +393,7 @@
 <li>remove(String key) —— 根据key值删除某个元素</li>
 </ul>
 <p>虽然看似是3个不同的操作，但是究其本质，要实现这3个操作，都得先找到某个元素 或是 定位到一个元素，好在下一个位子插入新元素。那么，我们就先把这个findEntry的方法实现吧。</p>
-<p><img src="/images/2016-06-26 19-25-47.jpg" alt=""><br>上面的图示使用紫色的箭头画出了在一个SkipList中查找key值50的过程。简述如下：</p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/9f2534a76655b15d.jpg" alt=""><br>上面的图示使用紫色的箭头画出了在一个SkipList中查找key值50的过程。简述如下：</p>
 <ol>
 <li>从head出发，因为head指向最顶层（top level）链表的开始节点，相当于从顶层开始查找；</li>
 <li>移动到当前节点的右指针（right）指向的节点，直到右节点的key值大于要查找的key值时停止；</li>
@@ -408,7 +408,7 @@
 <li>如果传入的key值在跳跃表中不存在，则findEntry返回跳跃表中key值小于key，并且key值相差最小的底层节点；</li>
 </ol>
 <p>示例，在跳跃表中查找key＝42的元素节点，将返回key＝39的节点。如下图所示：</p>
-<p><img src="/images/2016-06-26 22-06-28.jpg" alt=""></p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/163c30ebf10acd1e.jpg" alt=""></p>
 <p>基于findEntry方法，我们就能很容易的实现前面所说的一些操作了。</p>
 <h4 id="实现get方法"><a href="#实现get方法" class="headerlink" title="实现get方法"></a>实现get方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	SkipListEntry p;</span><br><span class="line">	</span><br><span class="line">	p = findEntry(key);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(p.key.equals(key)) &#123;</span><br><span class="line">		<span class="keyword">return</span> p.value;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="实现put方法"><a href="#实现put方法" class="headerlink" title="实现put方法"></a>实现put方法</h4><p>put方法有一些需要注意的步骤：</p>
@@ -418,9 +418,9 @@
 <li>当新添加的节点高度达到跳跃表的最大level，需要添加一个空白层（除了-oo和+oo没有别的节点）</li>
 </ol>
 <p>下面我们一步一步的通过图示看一下插入节点的过程：</p>
-<p><img src="/images/2016-06-26 22-30-46.jpg" alt=""></p>
-<h5 id="第一步，查找适合插入的位子"><a href="#第一步，查找适合插入的位子" class="headerlink" title="第一步，查找适合插入的位子"></a>第一步，查找适合插入的位子</h5><p><img src="/images/2016-06-26 22-31-43.jpg" alt=""></p>
-<h5 id="第二步，在查找到的p节点后面插入新增的节点q"><a href="#第二步，在查找到的p节点后面插入新增的节点q" class="headerlink" title="第二步，在查找到的p节点后面插入新增的节点q"></a>第二步，在查找到的p节点后面插入新增的节点q</h5><p><img src="/images/2016-06-26 22-32-41.jpg" alt=""></p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/a7674edebae6007b.jpg" alt=""></p>
+<h5 id="第一步，查找适合插入的位子"><a href="#第一步，查找适合插入的位子" class="headerlink" title="第一步，查找适合插入的位子"></a>第一步，查找适合插入的位子</h5><p><img src="http://ac-jU0QGlgD.clouddn.com/163c30ebf10acd1e.jpg" alt=""></p>
+<h5 id="第二步，在查找到的p节点后面插入新增的节点q"><a href="#第二步，在查找到的p节点后面插入新增的节点q" class="headerlink" title="第二步，在查找到的p节点后面插入新增的节点q"></a>第二步，在查找到的p节点后面插入新增的节点q</h5><p><img src="http://ac-jU0QGlgD.clouddn.com/d31f97809957012b.jpg" alt=""></p>
 <h5 id="第三步，重复下面的操作，使用随机数决定新增节点的高度"><a href="#第三步，重复下面的操作，使用随机数决定新增节点的高度" class="headerlink" title="第三步，重复下面的操作，使用随机数决定新增节点的高度"></a>第三步，重复下面的操作，使用随机数决定新增节点的高度</h5><ol>
 <li>从p节点开始，向左移动，直到找到含有更高level节点的节点；</li>
 <li>将p指针向上移动一个level；</li>
@@ -428,9 +428,9 @@
 <li>直到随机数不满足向上攀升的条件为止；</li>
 </ol>
 <p>图示如下：</p>
-<p><img src="/images/2016-06-26 22-41-19.jpg" alt=""><br><img src="/images/2016-06-26 22-41-45.jpg" alt=""><br><img src="/images/2016-06-26 22-42-08.jpg" alt=""></p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/3f01e41aab79d877.jpg" alt=""><br><img src="http://ac-jU0QGlgD.clouddn.com/4739968252615bfb.jpg" alt=""><br><img src="http://ac-jU0QGlgD.clouddn.com/7f3407d7ebe06c76.jpg" alt=""></p>
 <p>只要随机数满足条件，key＝42的节点就会一直向上攀升，直到它的level等于跳跃表的高度（height）。这个时候我们需要在跳跃表的最顶层添加一个空白层，同时跳跃表的height＋1，以满足下一次新增节点的操作。</p>
-<p><img src="/images/2016-06-26 22-45-13.jpg" alt=""></p>
+<p><img src="http://ac-jU0QGlgD.clouddn.com/d62cb6debb4a1350.jpg" alt=""></p>
 <p>Java代码实现如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">put</span><span class="params">(String key, Integer value)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	SkipListEntry p, q;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 查找适合插入的位子</span></span><br><span class="line">	p = findEntry(key);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 如果跳跃表中存在含有key值的节点，则进行value的修改操作即可完成</span></span><br><span class="line">	<span class="keyword">if</span>(p.key.equals(key)) &#123;</span><br><span class="line">		Integer oldValue = p.value;</span><br><span class="line">		p.value = value;</span><br><span class="line">		<span class="keyword">return</span> oldValue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 如果跳跃表中不存在含有key值的节点，则进行新增操作</span></span><br><span class="line">	q = <span class="keyword">new</span> SkipListEntry(key, value);</span><br><span class="line">	q.left = p;</span><br><span class="line">	q.right = p.right;</span><br><span class="line">	p.right.left = q;</span><br><span class="line">	p.right = q;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 再使用随机数决定是否要向更高level攀升</span></span><br><span class="line">	<span class="keyword">while</span>(r.nextDouble() &lt; <span class="number">0.5</span>) &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如果新元素的级别已经达到跳跃表的最大高度，则新建空白层</span></span><br><span class="line">		<span class="keyword">if</span>(i &gt;= h) &#123;</span><br><span class="line">			addEmptyLevel();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 从p向左扫描含有高层节点的节点</span></span><br><span class="line">		<span class="keyword">while</span>(p.up == <span class="keyword">null</span>) &#123;</span><br><span class="line">			p = p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		p = p.up;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 新增和q指针指向的节点含有相同key值的节点对象</span></span><br><span class="line">		<span class="comment">// 这里需要注意的是除底层节点之外的节点对象是不需要value值的</span></span><br><span class="line">		SkipListEntry z = <span class="keyword">new</span> SkipListEntry(key, <span class="keyword">null</span>);</span><br><span class="line">		</span><br><span class="line">		z.left = p;</span><br><span class="line">		z.right = p.right;</span><br><span class="line">		p.right.left = z;</span><br><span class="line">		p.right = z;</span><br><span class="line">		</span><br><span class="line">		z.down = q;</span><br><span class="line">		q.up = z;</span><br><span class="line">		</span><br><span class="line">		q = z;</span><br><span class="line">		i = i + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	n = n + <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 返回null，没有旧节点的value值</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addEmptyLevel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	SkipListEntry p1, p2;</span><br><span class="line">	</span><br><span class="line">	p1 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.negInf, <span class="keyword">null</span>);</span><br><span class="line">	p2 = <span class="keyword">new</span> SkipListEntry(SkipListEntry.posInf, <span class="keyword">null</span>);</span><br><span class="line">	</span><br><span class="line">	p1.right = p2;</span><br><span class="line">	p1.down = head;</span><br><span class="line">	</span><br><span class="line">	p2.left = p1;</span><br><span class="line">	p2.down = tail;</span><br><span class="line">	</span><br><span class="line">	head.up = p1;</span><br><span class="line">	tail.up = p2;</span><br><span class="line">	</span><br><span class="line">	head = p1;</span><br><span class="line">	tail = p2;</span><br><span class="line">	</span><br><span class="line">	h = h + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="实现remove方法"><a href="#实现remove方法" class="headerlink" title="实现remove方法"></a>实现remove方法</h4><p>删除节点的操作相对put就比较简单了，首先查找到包含key值的节点，将节点从链表中移除，接着如果有更高level的节点，则repeat这个操作即可。<br>Java代码实现如下：</p>
@@ -476,6 +476,20 @@
         </div>
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/26/2016-06-27/" rel="next" title="跳跃表Skip List的原理和实现(Java)">
+                <i class="fa fa-chevron-left"></i> 跳跃表Skip List的原理和实现(Java)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -540,7 +554,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -548,7 +562,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -557,7 +571,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
